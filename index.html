@@ -229,6 +229,172 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/String对象知多少/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Circle">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenjiang-circle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/24/String对象知多少/" itemprop="url">String对象知多少</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-24T17:45:03+08:00">
+                2019-09-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="String对象的实现"><a href="#String对象的实现" class="headerlink" title="String对象的实现"></a>String对象的实现</h2><p>String对象是Java中使用最频繁的对象之一。下面是String对象的优化过程：<br><img src="https://user-gold-cdn.xitu.io/2019/9/23/16d5eac18d375060?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="优化过程"></p>
+<h3 id="在java6以及之前的版本中"><a href="#在java6以及之前的版本中" class="headerlink" title="在java6以及之前的版本中"></a>在java6以及之前的版本中</h3><p>String对象是对char数组进行了封装实现的对象，主要有四个成员变量：char数组、偏移量offset、字符数量count和哈希值hash。</p>
+<p>String对象是通过offset和count两个属性来定位char[]数组，获取字符串。这么做可以高效、快速地共享数组对象，同时节省内存空间，但这种方式很有可能会导致内存泄漏。</p>
+<h3 id="从java7到java8"><a href="#从java7到java8" class="headerlink" title="从java7到java8"></a>从java7到java8</h3><p>从java7版本开始，java对String类做了一些改变。String类中不再有offset和count两个变量了。这样的好处是String对象占用的内存稍微少了一些，同时<code>String.subString</code>方法也不再共享char[]，从而解决了使用该方法可能导致的内存泄漏问题。</p>
+<h3 id="从java8版本开始"><a href="#从java8版本开始" class="headerlink" title="从java8版本开始"></a>从java8版本开始</h3><p>从char[]数组改为了byte[]数组，为什么需要这样做呢？我们知道char是两个字节，如果用来存一个字节的字符有点浪费，为了节约空间，java公司就改成了一个字节byte来存储字符串。这样在存储一个字节的字符时就可以避免浪费了。</p>
+<p>在java9维护了一个新的属性coder，它是编码格式的标识在计算字符串长度或者调用<code>indexOf()</code>函数时，需要根据这个字段，判断如何计算字符串长度。coder属性默认有0和1两个值，0代表Latin-1（单字节编码），1代表UTF-16编码。如果String判断字符串只包含了Latin-1，则coder属性值为0，反之则为1。</p>
+<h2 id="String对象的创建方式"><a href="#String对象的创建方式" class="headerlink" title="String对象的创建方式"></a>String对象的创建方式</h2><h3 id="通过字符串常量的方式"><a href="#通过字符串常量的方式" class="headerlink" title="通过字符串常量的方式"></a>通过字符串常量的方式</h3><p><code>String str = &quot;circle&quot;</code>的形式，使用这种形式创建字符串时，JVM会在字符串常量池中先检查是否存在改对象，如果存在，返回该对象的引用地址；如果不存在，则在字符串常量池中创建该对象并且返回引用。使用这种方式创建的好处是：避免了相同值的字符串重复创建，节约了内存。</p>
+<h3 id="String-构造器的方式"><a href="#String-构造器的方式" class="headerlink" title="String()构造器的方式"></a>String()构造器的方式</h3><p><code>String str = new String(&quot;circle&quot;)</code>的形式，使用这种方式创建字符串对象过程就比较复杂，分为两个阶段。</p>
+<ul>
+<li>首先，在编译时，字符串circle会被加入到常量结构中。类加载时就会在常量池中创建该字符串。</li>
+<li>然后就是在调用new()时，JVM将会调用String的构造器，同时引用常量池中的circle字符串，在堆内存中创建一个String对象并且返回堆中的引用地址。</li>
+</ul>
+<p>所以，总共在整个过程中创建了两个对象。</p>
+<hr>
+
+<p>小分析：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"circle"</span>;</span><br><span class="line">String str1 = <span class="keyword">new</span> String(<span class="string">"circle"</span>);</span><br><span class="line">System.out.println(str == str1);</span><br></pre></td></tr></table></figure>
+
+<p>逐一分析这几行代码，首先从String str = “circle”开始，这里使用了字符串常量的方式创建字符串对象，在创建circle字符串对象时，JVM会去常量池中查找是否存在该字符串，这里的答案肯定是没有的，所以JVM将会在常量池中创建该字符串对象并且返回对象的地址引用，所以str指向的是circle字符串对象在<strong>常量池中的地址引用</strong>。</p>
+<p>然后是String str1 = new String(“circle”)这行代码，这里使用的是构造函数的方式创建字符串对象，根据我们上面对构造函数方式创建字符串对象的理解，str1得到的应该是堆中circle字符串的引用地址。由于str指向的是circle字符串对象在常量池中的地址引用而str1指向的是堆中circle字符串的引用地址，所以str肯定不等于str1。</p>
+<h2 id="String对象的不可变性"><a href="#String对象的不可变性" class="headerlink" title="String对象的不可变性"></a>String对象的不可变性</h2><p>对于String的不可变性，先来看看String对象的一段源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">  <span class="comment">/** The value is used for character storage. */</span></span><br><span class="line">  <span class="keyword">private</span> fianl <span class="keyword">char</span> value[];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/** use serialVersionUID from JDK 1.0.2 for interoperability */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> servialVersionUID = -<span class="number">68497944770754667710L</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从这段源码可以看出，String类用了final修饰符。说明String不能被继承，这是String不可变性的第一点。</p>
+<p>存储字符串的char value[]数组被private和final修饰，我们对于一个被final修饰的基本数据类型的变量，其数值一旦在初始化之后便不能更改。这是String不可变性的第二点。</p>
+<h2 id="String对象的优化"><a href="#String对象的优化" class="headerlink" title="String对象的优化"></a>String对象的优化</h2><p>字符串时我们常用的java类型之一，所以对字符串的操作也是不可避免的。在对字符串的操作过程中，如果使用不当，性能会天差地别。</p>
+<p>对于<code>String str = &quot;circle&quot; + &quot;is&quot; + &quot;man&quot;</code>，按照我们的理解，在执行这个代码时，会先创建circle对象，再创建circleis对象，最后创建circleisman对象。但是，java公司对编译器进行了优化，上面的这段字符串的拼接会被编译器优化成<code>String str = &quot;circleisman&quot;</code>。</p>
+<p>除了对常量字符串拼接做了优化以外，对于使用<code>+</code>号动态拼接的字符串，编译器也做了相应的优化，以便提升String的性能。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"circle"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">  str = str + i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译器会优化成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"circle"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">  str = (<span class="keyword">new</span> StringBuilder(String.valueOf(str))).append(i).toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以在做字符串拼接时，需要从代码的层面进行优化，在动态的拼接字符串时，如果不涉及到线程安全的情况下，我们显示的使用StringBuilder进行拼接，提升系统性能，如果涉及到线程安全的话，我们使用StringBuffer来进行字符串拼接。</p>
+<h3 id="巧妙使用intern-方法"><a href="#巧妙使用intern-方法" class="headerlink" title="巧妙使用intern()方法"></a>巧妙使用intern()方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">* &lt;p&gt;</span><br><span class="line">* When the intern method is invoked, <span class="keyword">if</span> the pool already contains a</span><br><span class="line">* string equal to <span class="keyword">this</span> &#123;<span class="meta">@code</span> String&#125; object as determined by</span><br><span class="line">* the &#123;@link #equals(Object)&#125; method, then the string from the pool is</span><br><span class="line">* returned. Otherwise, <span class="keyword">this</span> &#123;<span class="meta">@code</span> String&#125; object is added to the</span><br><span class="line">* pool and a reference to <span class="keyword">this</span> &#123;<span class="meta">@code</span> String&#125; object is returned.</span><br><span class="line">* &lt;p&gt;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">intern</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>这是intern方法的官方注释，大概意思就是intern方法用来返回常量池中的某字符串，如果常量池中已经存在该字符串，则直接返回常量池中该对象的引用。否则，在常量池中加入该对象，然后返回引用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String str = <span class="keyword">new</span> String(<span class="string">"circle"</span>);</span><br><span class="line">    String str1 = <span class="keyword">new</span> String(<span class="string">"circle"</span>);</span><br><span class="line">    System.out.println(<span class="string">"未使用intern()方法："</span>+(str==str1));</span><br><span class="line">    System.out.println(<span class="string">"未使用intern()方法,str："</span>+str);</span><br><span class="line">    System.out.println(<span class="string">"未使用intern()方法,str1："</span>+str1);</span><br><span class="line"></span><br><span class="line">    String str2= <span class="keyword">new</span> String(<span class="string">"circle"</span>).intern();</span><br><span class="line">    String str3 = <span class="keyword">new</span> String(<span class="string">"circle"</span>).intern();</span><br><span class="line">    System.out.println(<span class="string">"使用intern()方法："</span>+(str2==str3));</span><br><span class="line">    System.out.println(<span class="string">"使用intern()方法,str2："</span>+str2);</span><br><span class="line">    System.out.println(<span class="string">"使用intern()方法,str3："</span>+str3);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出结果为：</span></span><br><span class="line"><span class="comment">// 未使用intern()方法：false</span></span><br><span class="line"><span class="comment">// 未使用intern()方法，str：circle</span></span><br><span class="line"><span class="comment">// 未使用intern()方法，str1：circle</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">// 输出结果为：</span></span><br><span class="line"><span class="comment">// 使用intern()方法：true</span></span><br><span class="line"><span class="comment">// 使用intern()方法，str2：circle</span></span><br><span class="line"><span class="comment">// 使用intern()方法，str3：circle</span></span><br></pre></td></tr></table></figure>
+
+<p>从结果上看，未使用intern()方法时，构造相同的字符串对象返回不同的对象引用地址；使用String.intern()方法后，构造形同值的字符串对象时，返回相同的对象引用地址。</p>
+<p>String.intern()方法虽然好，但是我们要结合场景使用，不能乱用，因为常量池的实现是类似于一个HashTable的实现方式，HashTable 存储的数据越大，遍历的时间复杂度就会增加。如果数据过大，会增加整个字符串常量池的负担。</p>
+<h3 id="灵活的字符串的分割"><a href="#灵活的字符串的分割" class="headerlink" title="灵活的字符串的分割"></a>灵活的字符串的分割</h3><p>字符串的分割是字符串操作的常用操作之一，对于字符串的分割，大部分人使用的都是 Split() 方法，Split() 方法大多数情况下使用的是正则表达式，这种分割方式本身没有什么问题，但是由于正则表达式的性能是非常不稳定的，使用不恰当会引起回溯问题，很可能导致 CPU 居高不下。在以下两种情况下 Split() 方法不会使用正则表达式：</p>
+<ul>
+<li>传入的参数长度为1，且不包含“.$|()[{^?*+\”regex元字符的情况下，不会使用正则表达式</li>
+<li>传入的参数长度为2，第一个字符是反斜杠，并且第二个字符不是ASCII数字或ASCII字母的情况下，不会使用正则表达式</li>
+</ul>
+<p>所以在字符串分割时，应该慎重使用 Split() 方法，首先考虑使用 String.indexOf() 方法进行字符串分割，如果 String.indexOf() 无法满足分割要求，再使用 Split() 方法，使用 Split() 方法分割字符串时，需要注意回溯问题。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/Synergy神器的下载与安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1052,7 +1218,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
