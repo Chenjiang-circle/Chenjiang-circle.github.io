@@ -300,7 +300,8 @@
       
         
           
-            <h2 id="String对象的实现"><a href="#String对象的实现" class="headerlink" title="String对象的实现"></a>String对象的实现</h2><p>String对象是Java中使用最频繁的对象之一。下面是String对象的优化过程：<br><img src="https://user-gold-cdn.xitu.io/2019/9/23/16d5eac18d375060?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="优化过程"></p>
+            <h2 id="String对象的实现"><a href="#String对象的实现" class="headerlink" title="String对象的实现"></a>String对象的实现</h2><p>String对象是Java中使用最频繁的对象之一。下面是String对象的优化过程：</p>
+<p><img src="https://i.loli.net/2019/09/24/bUnZYPp2ra7tXh9.jpg" alt="16d5eac18d375060.jpg"></p>
 <h3 id="在java6以及之前的版本中"><a href="#在java6以及之前的版本中" class="headerlink" title="在java6以及之前的版本中"></a>在java6以及之前的版本中</h3><p>String对象是对char数组进行了封装实现的对象，主要有四个成员变量：char数组、偏移量offset、字符数量count和哈希值hash。</p>
 <p>String对象是通过offset和count两个属性来定位char[]数组，获取字符串。这么做可以高效、快速地共享数组对象，同时节省内存空间，但这种方式很有可能会导致内存泄漏。</p>
 <h3 id="从java7到java8"><a href="#从java7到java8" class="headerlink" title="从java7到java8"></a>从java7到java8</h3><p>从java7版本开始，java对String类做了一些改变。String类中不再有offset和count两个变量了。这样的好处是String对象占用的内存稍微少了一些，同时<code>String.subString</code>方法也不再共享char[]，从而解决了使用该方法可能导致的内存泄漏问题。</p>
