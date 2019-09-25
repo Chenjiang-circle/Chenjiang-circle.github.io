@@ -88,7 +88,7 @@
 <meta property="og:description" content="String对象的实现String对象是Java中使用最频繁的对象之一。下面是String对象的优化过程：  在java6以及之前的版本中String对象是对char数组进行了封装实现的对象，主要有四个成员变量：char数组、偏移量offset、字符数量count和哈希值hash。 String对象是通过offset和count两个属性来定位char[]数组，获取字符串。这么做可以高效、快速地共享">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zMi5heDF4LmNvbS8yMDE5LzA5LzI0L3VFYUZuSC5qcGc?x-oss-process=image/format,png">
-<meta property="og:updated_time" content="2019-09-25T00:18:42.019Z">
+<meta property="og:updated_time" content="2019-09-25T01:35:25.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String对象知多少">
 <meta name="twitter:description" content="String对象的实现String对象是Java中使用最频繁的对象之一。下面是String对象的优化过程：  在java6以及之前的版本中String对象是对char数组进行了封装实现的对象，主要有四个成员变量：char数组、偏移量offset、字符数量count和哈希值hash。 String对象是通过offset和count两个属性来定位char[]数组，获取字符串。这么做可以高效、快速地共享">
@@ -349,6 +349,8 @@
 <h3 id="在java6以及之前的版本中"><a href="#在java6以及之前的版本中" class="headerlink" title="在java6以及之前的版本中"></a>在java6以及之前的版本中</h3><p>String对象是对char数组进行了封装实现的对象，主要有四个成员变量：char数组、偏移量offset、字符数量count和哈希值hash。</p>
 <p>String对象是通过offset和count两个属性来定位char[]数组，获取字符串。这么做可以高效、快速地共享数组对象，同时节省内存空间，但这种方式很有可能会导致内存泄漏。</p>
 <h3 id="从java7到java8"><a href="#从java7到java8" class="headerlink" title="从java7到java8"></a>从java7到java8</h3><p>从java7版本开始，java对String类做了一些改变。String类中不再有offset和count两个变量了。这样的好处是String对象占用的内存稍微少了一些，同时<code>String.subString</code>方法也不再共享char[]，从而解决了使用该方法可能导致的内存泄漏问题。</p>
+<a id="more"></a>
+
 <h3 id="从java8版本开始"><a href="#从java8版本开始" class="headerlink" title="从java8版本开始"></a>从java8版本开始</h3><p>从char[]数组改为了byte[]数组，为什么需要这样做呢？我们知道char是两个字节，如果用来存一个字节的字符有点浪费，为了节约空间，java公司就改成了一个字节byte来存储字符串。这样在存储一个字节的字符时就可以避免浪费了。</p>
 <p>在java9维护了一个新的属性coder，它是编码格式的标识在计算字符串长度或者调用<code>indexOf()</code>函数时，需要根据这个字段，判断如何计算字符串长度。coder属性默认有0和1两个值，0代表Latin-1（单字节编码），1代表UTF-16编码。如果String判断字符串只包含了Latin-1，则coder属性值为0，反之则为1。</p>
 <h2 id="String对象的创建方式"><a href="#String对象的创建方式" class="headerlink" title="String对象的创建方式"></a>String对象的创建方式</h2><h3 id="通过字符串常量的方式"><a href="#通过字符串常量的方式" class="headerlink" title="通过字符串常量的方式"></a>通过字符串常量的方式</h3><p><code>String str = &quot;circle&quot;</code>的形式，使用这种形式创建字符串时，JVM会在字符串常量池中先检查是否存在改对象，如果存在，返回该对象的引用地址；如果不存在，则在字符串常量池中创建该对象并且返回引用。使用这种方式创建的好处是：避免了相同值的字符串重复创建，节约了内存。</p>

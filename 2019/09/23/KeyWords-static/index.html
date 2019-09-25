@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Chenjiang-circle">
 <meta property="og:description" content="static关键字的用途static方法static方法一般称作静态方法。由于静态方法不依赖于任何对象就可以进行访问，因此对于静态变量来说，是没有this的。 在静态方法中不能访问类的非静态成员变量和非静态成员方法，因为非静态成员方法/变量都是必须依赖具体的对象才能够被调用。但是在非静态成员方法中是可以访问静态成员方法/变量的。 static变量static变量也称作静态变量，静态变量和非静态变量">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-25T00:17:06.866Z">
+<meta property="og:updated_time" content="2019-09-25T01:34:36.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈static用法">
 <meta name="twitter:description" content="static关键字的用途static方法static方法一般称作静态方法。由于静态方法不依赖于任何对象就可以进行访问，因此对于静态变量来说，是没有this的。 在静态方法中不能访问类的非静态成员变量和非静态成员方法，因为非静态成员方法/变量都是必须依赖具体的对象才能够被调用。但是在非静态成员方法中是可以访问静态成员方法/变量的。 static变量static变量也称作静态变量，静态变量和非静态变量">
@@ -345,6 +345,8 @@
         <h1 id="static关键字的用途"><a href="#static关键字的用途" class="headerlink" title="static关键字的用途"></a>static关键字的用途</h1><h4 id="static方法"><a href="#static方法" class="headerlink" title="static方法"></a>static方法</h4><p>static方法一般称作静态方法。由于静态方法不依赖于任何对象就可以进行访问，因此对于静态变量来说，是没有this的。</p>
 <p><strong>在静态方法中不能访问类的非静态成员变量和非静态成员方法</strong>，因为非静态成员方法/变量都是必须依赖具体的对象才能够被调用。但是在非静态成员方法中是可以访问静态成员方法/变量的。</p>
 <h4 id="static变量"><a href="#static变量" class="headerlink" title="static变量"></a>static变量</h4><p>static变量也称作静态变量，静态变量和非静态变量的区别是：<strong>静态变量被所有的对象所共享，在内存中只有一个副本，它当且仅当在类初次加载时会被初始化。而非静态变量时对象所拥有的，在创建对象的时候被初始化，存在多个副本，各个对象拥有的副本互不影响。</strong></p>
+<a id="more"></a>
+
 <h4 id="static代码块"><a href="#static代码块" class="headerlink" title="static代码块"></a>static代码块</h4><p>static关键字还有一个比较关键的作用就是：用来形成静态代码块以优化程序性能。static块可以置于类中的任何地方，类中可以有多个static块。在类初次被加载的时候，会按照static块的顺序来执行每个static块，并且只执行一次（因为只执行一次，所以优化了程序的性能）。例子如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">calss Person&#123;</span><br><span class="line">    <span class="keyword">private</span> Date birthDate;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(Date birthDate)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.birthDate = brithDate;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isBornBoomer</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Date startDate  = Date.valueOf(<span class="string">"1946"</span>);</span><br><span class="line">        Date endDate  = Date.valueOf(<span class="string">"1964"</span>);</span><br><span class="line">        <span class="keyword">return</span> birthDate.compareTo(startDate) &gt;= <span class="number">0</span> &amp;&amp; birthDate.compareTo(endDate) &lt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
