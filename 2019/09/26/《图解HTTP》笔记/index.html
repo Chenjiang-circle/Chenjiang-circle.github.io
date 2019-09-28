@@ -91,7 +91,11 @@
 <meta property="og:image" content="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1537509373,83950522&fm=26&gp=0.jpg">
 <meta property="og:image" content="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1941982715,3091131207&fm=26&gp=0.jpg">
 <meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569605121905&di=3101ea87ecf9919a1a23dfa9430f8fa3&imgtype=0&src=http%3A%2F%2Fimg2018.cnblogs.com%2Fblog%2F1528792%2F201811%2F1528792-20181108143954641-613429308.png">
-<meta property="og:updated_time" content="2019-09-27T14:38:54.039Z">
+<meta property="og:image" content="http://images2018.cnblogs.com/blog/1276550/201808/1276550-20180817175814470-46206255.png">
+<meta property="og:image" content="http://img.lizhengyang.cn/image/note/%E8%AF%B7%E6%B1%82%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5.jpg">
+<meta property="og:image" content="http://img.lizhengyang.cn/image/note/%E5%93%8D%E5%BA%94%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5.jpg">
+<meta property="og:image" content="http://ws1.sinaimg.cn/large/006c6oKBgy1ftl9n4mys9j30jn0d1qa9.jpg">
+<meta property="og:updated_time" content="2019-09-28T14:50:00.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《图解HTTP》笔记">
 <meta name="twitter:description" content="HTTP报文内的HTTP信息HTTP报文用于HTTP协议交互的信息被称为HTTP报文。客户端的HTTP报文叫做请求报文，服务端的叫做响应报文。HTT报文本身是由多行(用CR+LF作换行符)数据构成的字符串文本。">
@@ -368,6 +372,41 @@
 <p><strong>客户端驱动协商</strong>：由客户端进行内容协商的方式。用户从浏览器显示的选项列表中手动选择。还可以利用JavaScript脚本在web页面上自动进行上述选择。</p>
 <p><strong>透明协商</strong>：是服务器驱动和客户端驱动的结合体，是由服务端和客户端各自进行内容协商的一种方法。</p>
 <h2 id="返回结果的HTTP状态码"><a href="#返回结果的HTTP状态码" class="headerlink" title="返回结果的HTTP状态码"></a>返回结果的HTTP状态码</h2><h3 id="状态码告知从服务端返回的请求结果"><a href="#状态码告知从服务端返回的请求结果" class="headerlink" title="状态码告知从服务端返回的请求结果"></a>状态码告知从服务端返回的请求结果</h3><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569605121905&di=3101ea87ecf9919a1a23dfa9430f8fa3&imgtype=0&src=http%3A%2F%2Fimg2018.cnblogs.com%2Fblog%2F1528792%2F201811%2F1528792-20181108143954641-613429308.png" alt="zhuangtaima"></p>
+<h2 id="HTTP首部字段"><a href="#HTTP首部字段" class="headerlink" title="HTTP首部字段"></a>HTTP首部字段</h2><h3 id="4种HTTP首部字段类型"><a href="#4种HTTP首部字段类型" class="headerlink" title="4种HTTP首部字段类型"></a>4种HTTP首部字段类型</h3><p>HTTP首部字段根据实际用途分为以下4种类型：</p>
+<ul>
+<li><p>通用首部字段： 请求报文和响应报文的两方面都会使用的首部。</p>
+</li>
+<li><p>请求首部字段：从客户端向服务器发送请求报文时使用的首部。补充了请求的附加内容、客户端信息、响应内容相关优先级等信息。</p>
+</li>
+<li><p>响应首部字段：从服务端向客户端返回响应报文时使用的首部。补充了响应的附加内容，也会要求客户端附加额外的内容信息。</p>
+</li>
+<li><p>实体首部字段：针对请求报文和响应报文的实体部分使用的首部。补充了资源内容更新时间等与实体有关的信息。</p>
+</li>
+</ul>
+<h3 id="HTTP-1-1首部字段一览"><a href="#HTTP-1-1首部字段一览" class="headerlink" title="HTTP/1.1首部字段一览"></a>HTTP/1.1首部字段一览</h3><p>通用首部字段：</p>
+<p><img src="http://images2018.cnblogs.com/blog/1276550/201808/1276550-20180817175814470-46206255.png" alt="通用首部字段"></p>
+<p>请求首部字段：</p>
+<p><img src="http://img.lizhengyang.cn/image/note/%E8%AF%B7%E6%B1%82%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5.jpg" alt="请求首部字段"></p>
+<p>响应首部字段：</p>
+<p><img src="http://img.lizhengyang.cn/image/note/%E5%93%8D%E5%BA%94%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5.jpg" alt="响应首部字段"></p>
+<p>实体首部字段：</p>
+<p><img src="http://ws1.sinaimg.cn/large/006c6oKBgy1ftl9n4mys9j30jn0d1qa9.jpg" alt="实体首部信息"></p>
+<h3 id="End-to-end-首部和-Hop-by-hop-首部"><a href="#End-to-end-首部和-Hop-by-hop-首部" class="headerlink" title="End-to-end 首部和 Hop-by-hop 首部"></a>End-to-end 首部和 Hop-by-hop 首部</h3><p>HTTP首部字段将定义成缓存代理和非缓存代理的行为，分为两种类型。</p>
+<p>端到端首部（End-to-end Header）</p>
+<p>分在此类别中的首部会转发给请求/响应对应的最终接收目标，且必须保存在由缓存生成的响应中，另外规定它必须被转发。</p>
+<p>逐跳首部（Hop-by-hop Header）</p>
+<p>分在此类别中的首部只对单次转发有效，会因通过缓存或代理而不再转发。HTTP/1.1和之后版本中，如果要使用hop-by-hop首部，需提供Connection首部字段。</p>
+<p>下面例举出来了HTTP/1.1中的逐跳首部字段。除这8种首部字段之外，其他所有字段都属于端到端首部。</p>
+<ul>
+<li>Connection</li>
+<li>Keep-Alive</li>
+<li>Proxy-Authenticate</li>
+<li>Proxy-Authorization</li>
+<li>Trailer</li>
+<li>TE</li>
+<li>Transfer-Encoding</li>
+<li>Upgrade</li>
+</ul>
 
       
     </div>
@@ -550,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP报文内的HTTP信息"><span class="nav-number">1.</span> <span class="nav-text">HTTP报文内的HTTP信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP报文"><span class="nav-number">1.1.</span> <span class="nav-text">HTTP报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求报文和响应报文的结构"><span class="nav-number">1.2.</span> <span class="nav-text">请求报文和响应报文的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内容协商返回最合适的内容"><span class="nav-number">1.3.</span> <span class="nav-text">内容协商返回最合适的内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回结果的HTTP状态码"><span class="nav-number">2.</span> <span class="nav-text">返回结果的HTTP状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#状态码告知从服务端返回的请求结果"><span class="nav-number">2.1.</span> <span class="nav-text">状态码告知从服务端返回的请求结果</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP报文内的HTTP信息"><span class="nav-number">1.</span> <span class="nav-text">HTTP报文内的HTTP信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP报文"><span class="nav-number">1.1.</span> <span class="nav-text">HTTP报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求报文和响应报文的结构"><span class="nav-number">1.2.</span> <span class="nav-text">请求报文和响应报文的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内容协商返回最合适的内容"><span class="nav-number">1.3.</span> <span class="nav-text">内容协商返回最合适的内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回结果的HTTP状态码"><span class="nav-number">2.</span> <span class="nav-text">返回结果的HTTP状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#状态码告知从服务端返回的请求结果"><span class="nav-number">2.1.</span> <span class="nav-text">状态码告知从服务端返回的请求结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP首部字段"><span class="nav-number">3.</span> <span class="nav-text">HTTP首部字段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4种HTTP首部字段类型"><span class="nav-number">3.1.</span> <span class="nav-text">4种HTTP首部字段类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-1-1首部字段一览"><span class="nav-number">3.2.</span> <span class="nav-text">HTTP/1.1首部字段一览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#End-to-end-首部和-Hop-by-hop-首部"><span class="nav-number">3.3.</span> <span class="nav-text">End-to-end 首部和 Hop-by-hop 首部</span></a></li></ol></li></ol></div>
             
 
           </div>
