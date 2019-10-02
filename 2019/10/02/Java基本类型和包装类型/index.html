@@ -79,20 +79,21 @@
 
 
 
-<meta name="description" content="众所周知，java中的每个基本类型都对应一个包装类型。下面总结了，基本类型和包装类型的区别以及一些小坑。 包装类型可以为null，而基本类型不可以首先先了解一下什么是POJO。 POJO的英文全称为Plain Ordinary Java Object，这种Java对象只有属性字段以及setter和getter方法。示例如下： 1234567891011121314151617181920class">
+<meta name="description" content="众所周知，java中的每个基本类型都对应一个包装类型。下面总结了，基本类型和包装类型的区别以及一些小坑。 包装类型可以为null，而基本类型不可以首先先了解一下什么是POJO。 POJO的英文全称为Plain Ordinary Java Object，这种Java对象只有属性字段以及setter和getter方法。示例如下： 1234567891011121314151617181920clas">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基本类型和包装类型">
 <meta property="og:url" content="http://yoursite.com/2019/10/02/Java基本类型和包装类型/index.html">
 <meta property="og:site_name" content="Chenjiang-circle">
-<meta property="og:description" content="众所周知，java中的每个基本类型都对应一个包装类型。下面总结了，基本类型和包装类型的区别以及一些小坑。 包装类型可以为null，而基本类型不可以首先先了解一下什么是POJO。 POJO的英文全称为Plain Ordinary Java Object，这种Java对象只有属性字段以及setter和getter方法。示例如下： 1234567891011121314151617181920class">
+<meta property="og:description" content="众所周知，java中的每个基本类型都对应一个包装类型。下面总结了，基本类型和包装类型的区别以及一些小坑。 包装类型可以为null，而基本类型不可以首先先了解一下什么是POJO。 POJO的英文全称为Plain Ordinary Java Object，这种Java对象只有属性字段以及setter和getter方法。示例如下： 1234567891011121314151617181920clas">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2019/10/02/2B6ShENroITwRmy.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/10/02/dYSluUPzTc4X7Wh.png">
-<meta property="og:updated_time" content="2019-10-02T10:22:59.880Z">
+<meta property="og:updated_time" content="2019-10-02T10:33:16.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基本类型和包装类型">
-<meta name="twitter:description" content="众所周知，java中的每个基本类型都对应一个包装类型。下面总结了，基本类型和包装类型的区别以及一些小坑。 包装类型可以为null，而基本类型不可以首先先了解一下什么是POJO。 POJO的英文全称为Plain Ordinary Java Object，这种Java对象只有属性字段以及setter和getter方法。示例如下： 1234567891011121314151617181920class">
-<meta name="twitter:image" content="https://i.loli.net/2019/10/02/dYSluUPzTc4X7Wh.png">
+<meta name="twitter:description" content="众所周知，java中的每个基本类型都对应一个包装类型。下面总结了，基本类型和包装类型的区别以及一些小坑。 包装类型可以为null，而基本类型不可以首先先了解一下什么是POJO。 POJO的英文全称为Plain Ordinary Java Object，这种Java对象只有属性字段以及setter和getter方法。示例如下： 1234567891011121314151617181920clas">
+<meta name="twitter:image" content="https://i.loli.net/2019/10/02/2B6ShENroITwRmy.jpg">
 
 
 
@@ -344,7 +345,8 @@
       
 
       
-        <p>众所周知，java中的每个基本类型都对应一个包装类型。下面总结了，基本类型和包装类型的区别以及一些小坑。</p>
+        <p><img src="https://i.loli.net/2019/10/02/2B6ShENroITwRmy.jpg" alt="wallhaven-73lvqe.jpg"></p>
+<p>众所周知，java中的每个基本类型都对应一个包装类型。下面总结了，基本类型和包装类型的区别以及一些小坑。</p>
 <h2 id="包装类型可以为null，而基本类型不可以"><a href="#包装类型可以为null，而基本类型不可以" class="headerlink" title="包装类型可以为null，而基本类型不可以"></a>包装类型可以为null，而基本类型不可以</h2><p>首先先了解一下什么是<code>POJO</code>。</p>
 <p><code>POJO</code>的英文全称为<code>Plain Ordinary Java Object</code>，这种Java对象只有属性字段以及setter和getter方法。示例如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer version;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getVersion</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> version;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setVersion</span><span class="params">(Integer version)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.version = version;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
