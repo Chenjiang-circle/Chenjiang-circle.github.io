@@ -79,20 +79,21 @@
 
 
 
-<meta name="description" content="写在最前面看过我之前博客的都知道,我最近在和小伙伴写一个挂在本地服务器(Tomcat)上的一个音乐论坛。我们在写文章编写页面时遇到了问题——好多现成的富文本编辑器都不支持图床（有些富文本编辑器则是直接将上传的图片变成base64编码格式，然后存储在数据库中。我不是特别喜欢这种方式，就想着弄一个局域网图床，在同一个局域网上的小伙伴就可以把文件上传到我的Apache服务器上面，我返回一个唯一的链接地址">
+<meta name="description" content="使用Apache+JavaScript+Tomcat搭建一个局域网图床">
 <meta name="keywords" content="图床">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建局域网图床">
 <meta property="og:url" content="http://yoursite.com/2019/10/07/搭建局域网图床/index.html">
 <meta property="og:site_name" content="Chenjiang-circle">
-<meta property="og:description" content="写在最前面看过我之前博客的都知道,我最近在和小伙伴写一个挂在本地服务器(Tomcat)上的一个音乐论坛。我们在写文章编写页面时遇到了问题——好多现成的富文本编辑器都不支持图床（有些富文本编辑器则是直接将上传的图片变成base64编码格式，然后存储在数据库中。我不是特别喜欢这种方式，就想着弄一个局域网图床，在同一个局域网上的小伙伴就可以把文件上传到我的Apache服务器上面，我返回一个唯一的链接地址">
+<meta property="og:description" content="使用Apache+JavaScript+Tomcat搭建一个局域网图床">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/07/u2mnVf.jpg">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190801180536596.gif">
-<meta property="og:updated_time" content="2019-10-07T02:57:42.991Z">
+<meta property="og:updated_time" content="2019-10-07T03:03:02.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建局域网图床">
-<meta name="twitter:description" content="写在最前面看过我之前博客的都知道,我最近在和小伙伴写一个挂在本地服务器(Tomcat)上的一个音乐论坛。我们在写文章编写页面时遇到了问题——好多现成的富文本编辑器都不支持图床（有些富文本编辑器则是直接将上传的图片变成base64编码格式，然后存储在数据库中。我不是特别喜欢这种方式，就想着弄一个局域网图床，在同一个局域网上的小伙伴就可以把文件上传到我的Apache服务器上面，我返回一个唯一的链接地址">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190801180536596.gif">
+<meta name="twitter:description" content="使用Apache+JavaScript+Tomcat搭建一个局域网图床">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/10/07/u2mnVf.jpg">
 
 
 
@@ -354,7 +355,10 @@
       
 
       
-        <h3 id="写在最前面"><a href="#写在最前面" class="headerlink" title="写在最前面"></a>写在最前面</h3><p>看过我之前博客的都知道,我最近在和小伙伴写一个挂在本地服务器(Tomcat)上的一个音乐论坛。我们在写文章编写页面时遇到了问题——好多现成的富文本编辑器都不支持图床（有些富文本编辑器则是直接将上传的图片变成base64编码格式，然后存储在数据库中。我不是特别喜欢这种方式，就想着弄一个局域网图床，在同一个局域网上的小伙伴就可以把文件上传到我的Apache服务器上面，我返回一个唯一的链接地址，这样就比较舒服了。）</p>
+        <h1 id="使用Apache-JavaScript-Tomcat搭建一个局域网图床"><a href="#使用Apache-JavaScript-Tomcat搭建一个局域网图床" class="headerlink" title="使用Apache+JavaScript+Tomcat搭建一个局域网图床"></a>使用Apache+JavaScript+Tomcat搭建一个局域网图床</h1><p><img src="https://s2.ax1x.com/2019/10/07/u2mnVf.jpg" alt="u2mnVf.jpg"></p>
+<a id="more"></a>
+
+<h3 id="写在最前面"><a href="#写在最前面" class="headerlink" title="写在最前面"></a>写在最前面</h3><p>看过我之前博客的都知道,我最近在和小伙伴写一个挂在本地服务器(Tomcat)上的一个音乐论坛。<br>我们在写文章编写页面时遇到了问题——好多现成的富文本编辑器都不支持图床（有些富文本编辑器则是直接将上传的图片变成base64编码格式，然后存储在数据库中。我不是特别喜欢这种方式，就想着弄一个局域网图床，在同一个局域网上的小伙伴就可以把文件上传到我的Apache服务器上面，我返回一个唯一的链接地址，这样就比较舒服了。）</p>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="安装配置Apache"><a href="#安装配置Apache" class="headerlink" title="安装配置Apache"></a>安装配置Apache</h4><p>关于安装和配置Apache我再之前就写过一篇博客，<a href="https://blog.csdn.net/weixin_43912972/article/details/88376062" target="_blank" rel="noopener">点这里</a></p>
 <h4 id="前端页面"><a href="#前端页面" class="headerlink" title="前端页面"></a>前端页面</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/uploadimg.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"uploadForm"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"file"</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"upload"</span> <span class="attr">type</span>=<span class="string">"button"</span>&gt;</span>upload<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"abc"</span> <span class="attr">style</span>=<span class="string">"width: 500px; height: 20px;"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://localhost:8088/default-up.png"</span> <span class="attr">id</span>=<span class="string">"img"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -551,7 +555,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最前面"><span class="nav-number">1.</span> <span class="nav-text">写在最前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装配置Apache"><span class="nav-number">2.1.</span> <span class="nav-text">安装配置Apache</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前端页面"><span class="nav-number">2.2.</span> <span class="nav-text">前端页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后端servlet部分"><span class="nav-number">2.3.</span> <span class="nav-text">后端servlet部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工具类"><span class="nav-number">2.4.</span> <span class="nav-text">工具类:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最终效果"><span class="nav-number">2.5.</span> <span class="nav-text">最终效果:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Apache-JavaScript-Tomcat搭建一个局域网图床"><span class="nav-number">1.</span> <span class="nav-text">使用Apache+JavaScript+Tomcat搭建一个局域网图床</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最前面"><span class="nav-number">1.0.1.</span> <span class="nav-text">写在最前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">1.0.2.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装配置Apache"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">安装配置Apache</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前端页面"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">前端页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后端servlet部分"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">后端servlet部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工具类"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">工具类:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最终效果"><span class="nav-number">1.0.2.5.</span> <span class="nav-text">最终效果:</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
