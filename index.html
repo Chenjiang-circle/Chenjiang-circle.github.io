@@ -259,6 +259,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/线性链表的基本操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Circle">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/45083793.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenjiang-circle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/26/线性链表的基本操作/" itemprop="url">数据结构——线性链表的基本操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-26T00:00:47+08:00">
+                2019-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="线性链表"><a href="#线性链表" class="headerlink" title="线性链表"></a>线性链表</h2><h3 id="定义单链表存储结构"><a href="#定义单链表存储结构" class="headerlink" title="定义单链表存储结构"></a>定义单链表存储结构</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TRUE 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FALSE 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OK 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR 0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> Status;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> Boolean;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  ElementType data;</span><br><span class="line">  LNode * next;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> LNode * LinkList;</span><br></pre></td></tr></table></figure>
+
+<h3 id="线性链表的初始化"><a href="#线性链表的初始化" class="headerlink" title="线性链表的初始化"></a>线性链表的初始化</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitList</span><span class="params">(LinkList &amp;L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">// L指向头结点</span></span><br><span class="line">  L = (LinkList)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">  <span class="comment">// 判断分配存储空间是否成功</span></span><br><span class="line">  <span class="keyword">if</span> (!L)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">exit</span>(ERROR);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 将L的指针域置空</span></span><br><span class="line">  L-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="线性链表的销毁"><a href="#线性链表的销毁" class="headerlink" title="线性链表的销毁"></a>线性链表的销毁</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DeleteList</span><span class="params">(LinkList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  LinkList p;</span><br><span class="line">  <span class="comment">// 判断L指向的头结点是否为空，如果不为空，将其释放，并将原来的首元结点变成头结点</span></span><br><span class="line">  <span class="keyword">while</span> (L)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">// 将p指向首元结点</span></span><br><span class="line">    p = L-&gt;next;</span><br><span class="line">    <span class="comment">// 释放头结点</span></span><br><span class="line">    <span class="built_in">free</span>(L);</span><br><span class="line">    <span class="comment">// 将原来的首元结点变成现在的头结点</span></span><br><span class="line">    L = p;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="清空线性链表"><a href="#清空线性链表" class="headerlink" title="清空线性链表"></a>清空线性链表</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ClearList</span><span class="params">(LinkList L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">// 用指针指向该链表的首元结点，用上面销毁链表的方式，将首元结点及其之后的节点所组成的单链表销毁。并将该链表的头结点的指针域置空。</span></span><br><span class="line">  LinkList p = L-&gt;next;</span><br><span class="line">  <span class="comment">// 将头结点的指针域置空</span></span><br><span class="line">  L-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">  DestroyList(p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="判断线性链表是否为空"><a href="#判断线性链表是否为空" class="headerlink" title="判断线性链表是否为空"></a>判断线性链表是否为空</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">ListEmpty</span><span class="params">(LinkList L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">// 如果头结点的指针域不为空，说明链表不空。</span></span><br><span class="line">  <span class="keyword">if</span> (L-&gt;next)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">return</span> FALSE;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">return</span> TRUE;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="计算线性链表的长度"><a href="#计算线性链表的长度" class="headerlink" title="计算线性链表的长度"></a>计算线性链表的长度</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ListLength</span><span class="params">(LinkList L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">// 初始化计数器</span></span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// p指向链表的首元结点</span></span><br><span class="line">  LinkList p = L-&gt;next;</span><br><span class="line">  <span class="keyword">while</span> (p)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">// 如果p指向的结点存在，计数器加一，p指向它的后继</span></span><br><span class="line">    p = p-&gt;next;</span><br><span class="line">    i++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取第i个元素的位置"><a href="#获取第i个元素的位置" class="headerlink" title="获取第i个元素的位置"></a>获取第i个元素的位置</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取第i个元素，如果其存在，将其值赋给e，并返回OK；否则返回ERROR</span></span><br><span class="line"><span class="function">Status <span class="title">GetElem</span><span class="params">(LinkList L, <span class="keyword">int</span> i, ElemType&amp; e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">// 初始化计数器</span></span><br><span class="line">  <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">  LinkList p = L-&gt;next;</span><br><span class="line">  <span class="comment">// 循环遍历线性链表，如果p指向的结点为空或者j=i时，终止循环</span></span><br><span class="line">  <span class="keyword">while</span> (p &amp;&amp; j &lt; i)</span><br><span class="line">  &#123;</span><br><span class="line">    p = p-&gt;next;</span><br><span class="line">    j++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 判断循环终止的原因</span></span><br><span class="line">  <span class="keyword">if</span> (!p || j&gt; i)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">// 如果p指向的结点为空，或者j&gt;i都说明没有找到第i个元素</span></span><br><span class="line">    <span class="keyword">return</span> ERROR;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  e = p-&gt;data;</span><br><span class="line">  <span class="keyword">return</span> OK:</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="返回线性链表中满足特定函数的元素结点的位序"><a href="#返回线性链表中满足特定函数的元素结点的位序" class="headerlink" title="返回线性链表中满足特定函数的元素结点的位序"></a>返回线性链表中满足特定函数的元素结点的位序</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回线性链表中，第一个满足函数的数据元素的位序，如果不存在这样的数据元素，则返回0</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">LocateElem</span><span class="params">(LinkList L, ElemType e, Status(*compare)(ElemType, ElemType))</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">// 初始化指针位序</span></span><br><span class="line">  <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">  LinkList p = L-&gt;next;</span><br><span class="line">  <span class="keyword">while</span> (p)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span> (compare(p-&gt;data, e))</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">return</span> j;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    p = p-&gt;next;</span><br><span class="line">    j++;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="在表中寻找指定元素，并返回其前驱"><a href="#在表中寻找指定元素，并返回其前驱" class="headerlink" title="在表中寻找指定元素，并返回其前驱"></a>在表中寻找指定元素，并返回其前驱</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果线性链表中存在指定元素，且不是第一个，则返回其前驱和OK；否则返回ERROR</span></span><br><span class="line"><span class="function">Status <span class="title">PriorElem</span><span class="params">(LinkList L, ElemType cur_e, ElemType &amp;pre_e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  LinkList p = L;</span><br><span class="line">  <span class="keyword">while</span> (p &amp;&amp; p-&gt;next)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span> (p-&gt;next-&gt;data == cur_e)</span><br><span class="line">    &#123;</span><br><span class="line">      pre_e = p-&gt;data;</span><br><span class="line">      <span class="keyword">return</span> OK;</span><br><span class="line">    &#125;</span><br><span class="line">    p = p-&gt;next;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> ERROR;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="在表中寻找指定元素，并返回其后继"><a href="#在表中寻找指定元素，并返回其后继" class="headerlink" title="在表中寻找指定元素，并返回其后继"></a>在表中寻找指定元素，并返回其后继</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果线性链表中存在指定元素，且不是最后一个，则返回其后继和OK；否则返回ERROR</span></span><br><span class="line"><span class="function">Status <span class="title">Next</span><span class="params">(LinkList L, ElemType cur_e, ElemType &amp;next</span></span></span><br><span class="line"><span class="function"><span class="params">&#123;</span></span></span><br><span class="line"><span class="function"><span class="params">  LinkList p = L;</span></span></span><br><span class="line"><span class="function"><span class="params">  <span class="keyword">while</span> (p &amp;&amp; p-&gt;next)</span></span></span><br><span class="line"><span class="function"><span class="params">  &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">if</span> (p-&gt;data == cur_e)</span></span></span><br><span class="line"><span class="function"><span class="params">    &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">      next_p = p-&gt;next-&gt;data;</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">return</span> OK;</span></span></span><br><span class="line"><span class="function"><span class="params">    &#125;</span></span></span><br><span class="line"><span class="function"><span class="params">    p = p-&gt;next;</span></span></span><br><span class="line"><span class="function"><span class="params">  &#125;</span></span></span><br><span class="line"><span class="function"><span class="params">  </span></span></span><br><span class="line"><span class="function"><span class="params">  <span class="keyword">return</span> ERROR;</span></span></span><br><span class="line"><span class="function"><span class="params">&#125;</span></span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/25/数据结构——线性表中的头指针和头结点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1581,138 +1740,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/21/Circle/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Circle">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/45083793.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chenjiang-circle">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/21/Circle/" itemprop="url">Circle</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-21T16:41:33+08:00">
-                2019-09-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center"><p>Stay hungry Stay foolish<br><br><strong>Steve Jobs</strong></p>
-</blockquote>
-
-<img src="https://s2.ax1x.com/2019/09/25/uEHz5R.jpg" alt="beautiful">
-
-<h2 id="First"><a href="#First" class="headerlink" title="First"></a>First</h2><p>这是我第一次用hexo搭建博客，好多东西还是不懂，正在不断的摸索中。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/09/21/Circle/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1758,7 +1792,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
