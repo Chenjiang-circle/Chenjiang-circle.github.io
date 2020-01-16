@@ -259,6 +259,152 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/14/PAT乙级练习题_1009“说反话”_python解题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Circle">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/45083793.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenjiang-circle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/14/PAT乙级练习题_1009“说反话”_python解题/" itemprop="url">PAT乙级1009</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-14T12:20:44+08:00">
+                2020-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT乙级练习题/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT乙级练习题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="https://i.loli.net/2020/01/16/TRj1mgZNB2IJs3X.png" alt="wallhaven-0w3mqp.png"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/14/PAT乙级练习题_1009“说反话”_python解题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/14/PAT乙级练习题_1008“数组元素循环右移问题”_python解题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -351,23 +497,14 @@
 
       
         
-          
-            <a id="more"></a>
-<h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p>一个数组A中存有N（&gt;0）个整数，在不允许使用另外数组的前提下，将每个整数循环向右移M（≥0）个位置，即将A中的数据由($A_0​​ A_1⋯A_{N−1}$）变换为（$A_{N−M}⋯A_{​N−1}A_0A_1⋯A_{N−M−1}$）（最后M个数循环移至最前面的M个位置）。如果需要考虑程序移动数据的次数尽量少，要如何设计移动的方法？</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>每个输入包含一个测试用例，第1行输入N（1≤N≤100）和M（≥0）；第2行输入N个整数，之间用空格分隔。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>在一行中输出循环右移M位以后的整数序列，之间用空格分隔，序列结尾不能有多余空格。</p>
-<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><blockquote>
-<p>6 2<br>1 2 3 4 5 6</p>
-</blockquote>
-<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><blockquote>
-<p>5 6 1 2 3 4</p>
-</blockquote>
-<h1 id="my-answer"><a href="#my-answer" class="headerlink" title="my answer"></a>my answer</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>不真正地去移动数组，而是去计算移动数组之后的“第一个数”在原数组中的位置<code>index_start</code>，从<code>index_start</code>开始依次输出数组中对应位置的元素，到数组末尾就回到原数组的首位，直到重新回到<code>index_start</code>时结束。</p>
-<p>在计算<code>index_start</code>时，非常简单，<code>index_start = N - (N % M）</code>，之后只需要每次加一并模<code>N</code>即可得到<code>index_start</code>位置之后元素的位置（<code>(index_start + i) % N</code>， 其中<code>i</code>是循环的次数）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">input_str = input() <span class="comment"># 输入数组长度，以及移动的长度</span></span><br><span class="line">input_numbers = input() <span class="comment"># 输入数组</span></span><br><span class="line">input_str_list = input_str.split()</span><br><span class="line"><span class="comment"># 获取M和N</span></span><br><span class="line">N = int(input_str_list[<span class="number">0</span>]) </span><br><span class="line">M = int(input_str_list[<span class="number">1</span>])</span><br><span class="line">input_number_list = input_numbers.split()</span><br><span class="line">m = M % N <span class="comment"># m是数原数组中第一个数移动之后的位置</span></span><br><span class="line">index_start = N-m</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">    <span class="keyword">if</span> i &lt; N<span class="number">-1</span>:</span><br><span class="line">        print(input_number_list[(index_start+i)%N], end=<span class="string">' '</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(input_number_list[(index_start+i)%N])</span><br></pre></td></tr></table></figure>
-
-
-          
+          <p><img src="https://i.loli.net/2020/01/16/TRj1mgZNB2IJs3X.png" alt="wallhaven-0w3mqp.png"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/14/PAT乙级练习题_1008“数组元素循环右移问题”_python解题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -506,26 +643,14 @@
 
       
         
-          
-            <a id="more"></a>
-<h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p>让我们定义$d_n$​为：$d_n=p_{n+1}​​−p_n$，其中$p​_i$是第 $i$ 个素数。显然有$d_1=1$，且对于 $n&gt;1$ 有 $d_n$​​ 是偶数。“素数对猜想”认为“存在无穷多对相邻且差为2的素数”。<br>现给定任意正整数 N(&lt;$10^5$)，请计算不超过 N 的满足猜想的素数对的个数。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入在一行给出正整数<code>N</code>。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>在一行中输出不超过<code>N</code>的满足猜想的素数对的个数。</p>
-<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><blockquote>
-<p>20</p>
-</blockquote>
-<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><blockquote>
-<p>4</p>
-</blockquote>
-<h1 id="my-answer"><a href="#my-answer" class="headerlink" title="my answer"></a>my answer</h1><h3 id="优化方案："><a href="#优化方案：" class="headerlink" title="优化方案："></a>优化方案：</h3><ol>
-<li>从3开始，所有的被判断的数每循环一次+2（步长为2），这样就将所有的偶数排除在外</li>
-<li>利用大于3的素数都满足<code>3n+1</code>或者<code>3n-1</code>（n为正整数），将所有不满足该条件的数筛选掉</li>
-<li>所有的非素数（合数）都可以用几个素数的乘积来表示，故只需用素数作为判断素数时的<code>被除数</code>。所以用一个列表存储“已经被判断为素数的”素数，每一次循环都只从列表中选择小于等于“被判断数开方”的素数。如果在一次循环中，被判断数是素数，就将该数加入到“已经被判断为素数”的素数列表中。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="comment"># 判断是否是素数，是素数就返回True，否则返回False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_prime</span><span class="params">(n, prime_list)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">return</span> n &gt; <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">3</span>:</span><br><span class="line">        prime_list.append(n)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="comment"># （优化二）大于3的素数都满足 6n+1 或者 6n-1，所以不满足该条件的一定不是素数</span></span><br><span class="line">    <span class="keyword">if</span> n % <span class="number">6</span> != <span class="number">1</span> <span class="keyword">and</span> n % <span class="number">6</span> != <span class="number">5</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="comment"># 素数的因子，只有1和其本身；合数总可以表示成几个质数相乘的形式，即存在小于该合数的素数因子。</span></span><br><span class="line">    <span class="comment"># （优化三）所以，在判断是否是素数的时候，被除数只需要从“当前已经被判断为质数”的列表中“小于等于该数的开方”的素数中选择</span></span><br><span class="line">    up_limit = int(math.sqrt(n)) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> prime_list:</span><br><span class="line">        <span class="keyword">if</span> i &gt; up_limit:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> n % i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    prime_list.append(n)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    </span><br><span class="line">times = eval(input())</span><br><span class="line"><span class="keyword">if</span> times == <span class="number">1</span> <span class="keyword">or</span> times == <span class="number">2</span>:</span><br><span class="line">    print(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="comment">#  当输入的正整数大于2时，定义一个变量用来记录有多少个素数对（初始值为0）</span></span><br><span class="line">    N = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 定义一个变量pre_prime用来存储“当前”最大的素数A，</span></span><br><span class="line">    <span class="comment"># 如果发现一个素数B，就与“当前”最大的素数做差（B-A）</span></span><br><span class="line">    <span class="comment"># 结果为2，N就加一，“当前”最大素数更新为新的素数的值（A = B）</span></span><br><span class="line">    pre_prime = <span class="number">2</span></span><br><span class="line">    <span class="comment"># 定义一个列表，用来存放已经被判断为素数的数</span></span><br><span class="line">    prime_list = [<span class="number">2</span>]</span><br><span class="line">    <span class="comment"># （优化一）从3开始，步长为2，这样就将所有的大于3的偶数(一定不是素数)筛选出去了</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>, times+<span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">        <span class="keyword">if</span> is_prime(i, prime_list):</span><br><span class="line">            <span class="keyword">if</span> (i - pre_prime) == <span class="number">2</span>:</span><br><span class="line">                N += <span class="number">1</span></span><br><span class="line">            pre_prime = i</span><br><span class="line"></span><br><span class="line">    print(N)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-
-          
+          <p><img src="https://i.loli.net/2020/01/16/TRj1mgZNB2IJs3X.png" alt="wallhaven-0w3mqp.png"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/13/PAT乙级练习题_1007“素数对猜想”_python解题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -664,27 +789,14 @@
 
       
         
-          
-            <a id="more"></a>
-<h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p>让我们用字母 B 来表示“百”、字母 S 表示“十”，用 12…n 来表示不为零的个位数字 n（&lt;10），换个格式来输出任一个不超过 3 位的正整数。例如 234 应该被输出为 BBSSS1234，因为它有 2 个“百”、3 个“十”、以及个位的 4。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>每个测试输入包含 1 个测试用例，给出正整数 n（&lt;1000）。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>每个测试用例的输出占一行，用规定的格式输出 n。</p>
-<h2 id="输入样例1"><a href="#输入样例1" class="headerlink" title="输入样例1"></a>输入样例1</h2><blockquote>
-<p>234</p>
-</blockquote>
-<h2 id="输出样例1"><a href="#输出样例1" class="headerlink" title="输出样例1"></a>输出样例1</h2><blockquote>
-<p>BBSSS1234</p>
-</blockquote>
-<h2 id="输入样例2"><a href="#输入样例2" class="headerlink" title="输入样例2"></a>输入样例2</h2><blockquote>
-<p>23</p>
-</blockquote>
-<h2 id="输出样例2"><a href="#输出样例2" class="headerlink" title="输出样例2"></a>输出样例2</h2><blockquote>
-<p>SS123</p>
-</blockquote>
-<h1 id="myu-answer"><a href="#myu-answer" class="headerlink" title="myu answer"></a>myu answer</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">number = eval(input())</span><br><span class="line">ge = number % <span class="number">10</span></span><br><span class="line">number //= <span class="number">10</span></span><br><span class="line">shi = number % <span class="number">10</span></span><br><span class="line">number //= <span class="number">10</span></span><br><span class="line">bai = number % <span class="number">10</span></span><br><span class="line">ge_str = <span class="string">""</span></span><br><span class="line"><span class="keyword">if</span> ge == <span class="number">0</span>:</span><br><span class="line">    ge_str = <span class="string">""</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(ge):</span><br><span class="line">        ge_str += str(i + <span class="number">1</span>)</span><br><span class="line">print(<span class="string">"&#123;&#125;&#123;&#125;&#123;&#125;"</span>.format(<span class="string">"B"</span>*bai, <span class="string">"S"</span>*shi, ge_str))</span><br></pre></td></tr></table></figure>
-
-
-          
+          <p><img src="https://i.loli.net/2020/01/16/TRj1mgZNB2IJs3X.png" alt="wallhaven-0w3mqp.png"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/13/PAT乙级练习题_1006“换个格式输出整数”_python解题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -823,25 +935,14 @@
 
       
         
-          
-            <a id="more"></a>
-<h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p>读入 n（&gt;0）名学生的姓名、学号、成绩，分别输出成绩最高和成绩最低学生的姓名和学号。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>每个测试输入包含 1 个测试用例，格式为</p>
-<blockquote>
-<p>第 1 行：正整数 n<br>第 2 行：第 1 个学生的姓名 学号 成绩<br>第 3 行：第 2 个学生的姓名 学号 成绩<br>  … … …<br>第 n+1 行：第 n 个学生的姓名 学号 成绩</p>
-</blockquote>
-<p>其中<code>姓名</code>和<code>学号</code>均为不超过 10 个字符的字符串，成绩为 0 到 100 之间的一个整数，这里保证在一组测试用例中没有两个学生的成绩是相同的。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>对每个测试用例输出 2 行，第 1 行是成绩最高学生的姓名和学号，第 2 行是成绩最低学生的姓名和学号，字符串间有 1 空格。</p>
-<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><blockquote>
-<p>3<br>Joe Math990112 89<br>Mike CS991301 100<br>Mary EE990830 95</p>
-</blockquote>
-<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><blockquote>
-<p>Mike CS991301<br>Joe Math990112</p>
-</blockquote>
-<h2 id="my-answer"><a href="#my-answer" class="headerlink" title="my answer"></a>my answer</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">times = eval(input())</span><br><span class="line">i = <span class="number">1</span> <span class="comment"># 计数器</span></span><br><span class="line">max_list = []</span><br><span class="line">min_list = []</span><br><span class="line">info_str = input()</span><br><span class="line">max_list = info_str.split() <span class="comment">#初始化“最大”“最小”成绩信息</span></span><br><span class="line">min_list = info_str.split()</span><br><span class="line"><span class="keyword">while</span> i &lt; times:</span><br><span class="line">    info_str = input()</span><br><span class="line">    new_list = info_str.split()</span><br><span class="line">    <span class="keyword">if</span> int(max_list[<span class="number">2</span>]) &lt; int(new_list[<span class="number">2</span>]):</span><br><span class="line">        max_list = new_list</span><br><span class="line">    <span class="keyword">if</span> int(min_list[<span class="number">2</span>]) &gt; int(new_list[<span class="number">2</span>]):</span><br><span class="line">        min_list = new_list</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"&#123;&#125; &#123;&#125;\n&#123;&#125; &#123;&#125;"</span>.format(max_list[<span class="number">0</span>], max_list[<span class="number">1</span>], min_list[<span class="number">0</span>], min_list[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
-
-
-          
+          <p><img src="https://i.loli.net/2020/01/16/TRj1mgZNB2IJs3X.png" alt="wallhaven-0w3mqp.png"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/12/PAT乙级练习题_1004“成绩排名”_python解题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -980,21 +1081,14 @@
 
       
         
-          
-            <a id="more"></a>
-<h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p>读入一个正整数 n，计算其各位数字之和，用汉语拼音写出和的每一位数字。</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>每个测试输入包含 1 个测试用例，即给出自然数 n 的值。这里保证 n 小于 $10^{100}$ </p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>在一行内输出 n 的各位数字之和的每一位，拼音数字间有 1 空格，但一行中最后一个拼音数字后没有空格。</p>
-<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote>
-<p>1234567890987654321123456789</p>
-</blockquote>
-<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote>
-<p>yi san wu</p>
-</blockquote>
-<h1 id="my-answer"><a href="#my-answer" class="headerlink" title="my answer"></a>my answer</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将数字0-9对应的汉语拼音一次存放到数组里面</span></span><br><span class="line">numPinyin = [<span class="string">"ling"</span>,  <span class="string">"yi"</span>, <span class="string">"er"</span>, <span class="string">"san"</span>, <span class="string">"si"</span>, <span class="string">"wu"</span>, <span class="string">"liu"</span>, <span class="string">"qi"</span>, <span class="string">"ba"</span>, <span class="string">"jiu"</span>]</span><br><span class="line">nums  = eval(input())</span><br><span class="line">number_sum = <span class="number">0</span> <span class="comment"># 表示输入的数字的各位数字之和</span></span><br><span class="line"><span class="keyword">while</span> nums != <span class="number">0</span>:</span><br><span class="line">    number_sum += nums%<span class="number">10</span></span><br><span class="line">    nums //= <span class="number">10</span></span><br><span class="line"></span><br><span class="line">number_sum = str(number_sum)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(number_sum)):</span><br><span class="line">    <span class="keyword">if</span> i != len(number_sum)<span class="number">-1</span>:</span><br><span class="line">        print(numPinyin[int(number_sum[i])], end=<span class="string">" "</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(numPinyin[int(number_sum[i])])</span><br></pre></td></tr></table></figure>
-
-
-          
+          <p><img src="https://i.loli.net/2020/01/16/TRj1mgZNB2IJs3X.png" alt="wallhaven-0w3mqp.png"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/11/PAT乙级练习题_1002“写出这个数”_python解题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1133,23 +1227,14 @@
 
       
         
-          
-            <a id="more"></a>
-<h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p>卡拉兹(Callatz)猜想已经在1001中给出了描述。在这个题目里，情况稍微有些复杂。</p>
-<p>当我们验证卡拉兹猜想的时候，为了避免重复计算，可以记录下递推过程中遇到的每一个数。例如对 n=3 进行验证的时候，我们需要计算 3、5、8、4、2、1，则当我们对 n=5、8、4、2 进行验证的时候，就可以直接判定卡拉兹猜想的真伪，而不需要重复计算，因为这 4 个数已经在验证3的时候遇到过了，我们称 5、8、4、2 是被 3“覆盖”的数。我们称一个数列中的某个数 n 为“关键数”，如果 n 不能被数列中的其他数字所覆盖。</p>
-<p>现在给定一系列待验证的数字，我们只需要验证其中的几个关键数，就可以不必再重复验证余下的数字。你的任务就是找出这些关键数字，并按从大到小的顺序输出它们。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>每个测试输入包含 1 个测试用例，第 1 行给出一个正整数 K (&lt;100)，第 2 行给出 K 个互不相同的待验证的正整数 n (1&lt;n≤100)的值，数字间用空格隔开。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>每个测试用例的输出占一行，按从大到小的顺序输出关键数字。数字间用 1 个空格隔开，但一行中最后一个数字后没有空格。</p>
-<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><blockquote>
-<p>6<br>3 5 6 7 8 11</p>
-</blockquote>
-<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><blockquote>
-<p>7 6</p>
-</blockquote>
-<h1 id="my-answer"><a href="#my-answer" class="headerlink" title="my answer"></a>my answer</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">times = eval(input()) <span class="comment"># 输入要检验的次数</span></span><br><span class="line">numbers = input()    <span class="comment"># 输入检测的数字</span></span><br><span class="line">number_list = numbers.split() <span class="comment"># 将输入的数字字符串拆分开</span></span><br><span class="line">number_set = set()  <span class="comment"># 定义一个空的集合，用来存放“关键数”</span></span><br><span class="line">i = <span class="number">0</span> <span class="comment"># 计数器</span></span><br><span class="line"><span class="keyword">while</span> i &lt; times:</span><br><span class="line">    num = int(number_list[i])</span><br><span class="line">    <span class="keyword">if</span> num <span class="keyword">in</span> number_set: <span class="comment"># 如果这个数已经在“关键字”集合中， 那么直接跳过本次循环</span></span><br><span class="line">        i += <span class="number">1</span> <span class="comment"># ！！！！！！！一定要注意在continue之前加上i += 1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="comment"># 对数字进行“砍”的操作</span></span><br><span class="line">    <span class="keyword">while</span> num != <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span> num % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            num /= <span class="number">2</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            num = (<span class="number">3</span> * num + <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line">        <span class="comment"># 如果砍过的数字不在集合中，就需要将砍过之后的数字加到集合中</span></span><br><span class="line">        <span class="keyword">if</span> num <span class="keyword">in</span> number_set:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            number_set.add(num)</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">key_list = [] <span class="comment"># 定义一个列表用来存放“关键数字”</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> number_list:</span><br><span class="line">    <span class="keyword">if</span> int(i) <span class="keyword">not</span> <span class="keyword">in</span> number_set:</span><br><span class="line">        key_list.append(int(i)) <span class="comment"># 注意要将字符串类型转为int类型，如果字符串类型进行排序操作的话就会出问题，比如降序排列的时候，"11"会被排到"8"的后面</span></span><br><span class="line">key_list.sort(reverse = <span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(key_list)):</span><br><span class="line">    <span class="keyword">if</span> i != len(key_list)<span class="number">-1</span>:</span><br><span class="line">        print(key_list[i], end=<span class="string">" "</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(key_list[i])</span><br></pre></td></tr></table></figure>
-
-
-          
+          <p><img src="https://i.loli.net/2020/01/16/TRj1mgZNB2IJs3X.png" alt="wallhaven-0w3mqp.png"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/11/PAT乙级练习题_1005“继续(3n+1)猜想”_python解题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1288,213 +1373,14 @@
 
       
         
-          
-            <a id="more"></a>
-<h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p>卡拉兹(Callatz)猜想：<br>对任何一个正整数 n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把 (3n+1) 砍掉一半。这样一直反复砍下去，最后一定在某一步得到 n=1。卡拉兹在 1950 年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证 (3n+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与科研的进展……<br>我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过 1000 的正整数 n，简单地数一下，需要多少步（砍几下）才能得到 n=1？</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>每个测试输入包含 1 个测试用例，即给出正整数 n 的值。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>输出从 n 计算到 1 需要的步数。</p>
-<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote>
-<p>3</p>
-</blockquote>
-<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote>
-<p>5</p>
-</blockquote>
-<h1 id="my-answer"><a href="#my-answer" class="headerlink" title="my answer"></a>my answer</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">num = eval(input())</span><br><span class="line">times = <span class="number">0</span> <span class="comment"># 记录“砍”的次数</span></span><br><span class="line"><span class="keyword">while</span> num != <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">if</span> num % <span class="number">2</span> == <span class="number">0</span>: <span class="comment"># 偶数直接砍一半</span></span><br><span class="line">        <span class="keyword">if</span> num == <span class="number">8</span>:</span><br><span class="line">            times += <span class="number">3</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        num /= <span class="number">2</span></span><br><span class="line">        times += <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        num = (<span class="number">3</span> * num + <span class="number">1</span>) / <span class="number">2</span> <span class="comment"># 计数乘三加一再砍一半</span></span><br><span class="line">        times += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">print(times)</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/22/圈圈-2019年度总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Circle">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/45083793.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chenjiang-circle">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/22/圈圈-2019年度总结/" itemprop="url">圈圈 | 2019年度总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-22T09:02:26+08:00">
-                2019-12-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/年度总结/" itemprop="url" rel="index">
-                    <span itemprop="name">年度总结</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="圈圈成长记-2019个人年度总结"><a href="#圈圈成长记-2019个人年度总结" class="headerlink" title="圈圈成长记 | 2019个人年度总结"></a>圈圈成长记 | 2019个人年度总结</h1><h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>光阴似箭，日月如梭，这句话真的没错。随着自己的年龄的增长，<del>体重却一直居低不上</del>，感觉时间过得越来越快，以前都是论“天”过，现在一不小心就发现一周已经过去了。转眼间大二的学习生活已经过去一半，在这紧张的期末备考阶段，我心（bu）血（xiang）来（fu）潮（xi），想总结一下自己的这一年成长、变化。</p>
-<p>第一次写年度总结，没有经验，于是参照了掘金、CSDN等平台上的年度总结的结构。</p>
-<h2 id="WHO-AM-I"><a href="#WHO-AM-I" class="headerlink" title="WHO AM I"></a>WHO AM I</h2><p>我觉得有必要先介绍一下我自己。</p>
-<table>
-<thead>
-<tr>
-<th>option</th>
-<th>content</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>姓名</td>
-<td>圈圈</td>
-</tr>
-<tr>
-<td>性别</td>
-<td>男</td>
-</tr>
-<tr>
-<td>年龄</td>
-<td>19岁（马上就是奔三的人了）</td>
-</tr>
-<tr>
-<td>学校</td>
-<td>河南某“农业”双一流大学，在读本科二年级学生</td>
-</tr>
-<tr>
-<td>专业</td>
-<td>数据科学与大数据技术专业</td>
-</tr>
-<tr>
-<td>爱好</td>
-<td>踢足球、撸猫</td>
-</tr>
-<tr>
-<td>单身与否</td>
-<td>圈圈心中已经住着一个也只会住着一个小可爱了，你说我还单身吗？</td>
-</tr>
-<tr>
-<td>性格</td>
-<td>特别容易相处的一男的。但是内心藏着一只大家平常见不到的圈圈。</td>
-</tr>
-</tbody></table>
-<p>关于我为什么叫圈圈，以后有时间了，我将从盘古开天辟地给大家讲起，让大家清楚又明白地知道为啥我叫圈圈。</p>
-<h3 id="Flag"><a href="#Flag" class="headerlink" title="Flag"></a>Flag</h3><p>近期的目标非常明确，<strong>保研</strong>。之前的我，还一直在犹豫，到底是读研还是直接工作。就在写这篇总结之前，我下定决心要读研，而且要保研！与自己的导师见面的时候，我说出了自己的打算，但是表示自己有点担心，因为保研名额有限，竞争压力较大，害怕自己得不到保研名额。但是导师的一句话让我不再有所顾虑，无所畏惧地选择去争保研名额！</p>
-<blockquote>
-<p> 她是这样说的：“成事在人。”</p>
-</blockquote>
-<p>确实，机会都是自己争取的，我也并不差，为什么不争取一把呢？<code>“梦想”总是要有的，万一实现了呢？</code></p>
-<h2 id="专业知识"><a href="#专业知识" class="headerlink" title="专业知识"></a>专业知识</h2><p>作为一名计算机专业的学生以及未来的程序员，我深知不断学习的重要性。有必要在这里总结一下自己在专业知识方面一年的收获和积累。</p>
-<h3 id="2019上半年"><a href="#2019上半年" class="headerlink" title="2019上半年"></a>2019上半年</h3><p>2019年上半年，我还是大一，自己在学院“实验室”自学Java。我的Java入门书籍是《Head First Java》，确实这本书对我这种小白来说确实非常之友好，大量的图片（甚至书中出现了毫无厘头的顺口溜），让我骄傲于自己一天50页的阅读速度之外，也学会了Java的基本语法。不知不觉中，Java殿堂的大门已经被我这个懵懂的“IT小孩”打开了。看完《Head First Java》之后，我对Java基础语法的整体框架有了一个比较全面的认识，之后我选择去看了一本人人推荐的《Thinking in Java》，这本书对我还说确实是劝退级别的书——砖头一样的厚度，蚂蚁一样的小字。</p>
-
-          
+          <p><img src="https://i.loli.net/2020/01/16/TRj1mgZNB2IJs3X.png" alt="wallhaven-0w3mqp.png"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/11/PAT乙级练习题_1001“害死人不偿命的(3n+1)猜想”_python解题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
