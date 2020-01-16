@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="原题让我们定义$d_n$​为：$d_n=p_{n+1}​​−p_n$，其中$p​_i$是第 $i$ 个素数。显然有$d_1=1$，且对于 $n&amp;gt;1$ 有 $d_n$​​ 是偶数。“素数对猜想”认为“存在无穷多对相邻且差为2的素数”。现给定任意正整数 N(&amp;lt;$10^5$)，请计算不超过 N 的满足猜想的素数对的个数。 输入格式输入在一行给出正整数N。 输出格式在一行中输出不超过N的满足猜">
+<meta name="description" content="原题让我们定义$d_n$​为：$d_n=p_{n+1}​​−p_n$，其中$p​_i$是第 $i$ 个素数。显然有$d_1=1$，且对于 $n&amp;gt;1$ 有 $d_n$​​ 是偶数。“素数对猜想”认为“存在无穷多对相邻且差为2的素数”。现给定任意正整数 N(&amp;lt;$10^5$)，请计算不超过 N 的满足猜想的素数对的个数。 输入格式输入在一行给出正整数N。 输出格式在一行中输出不超过N的满足">
 <meta name="keywords" content="PAT刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PAT乙级1007">
 <meta property="og:url" content="http://yoursite.com/2020/01/13/PAT乙级练习题_1007“素数对猜想”_python解题/index.html">
 <meta property="og:site_name" content="Chenjiang-circle">
-<meta property="og:description" content="原题让我们定义$d_n$​为：$d_n=p_{n+1}​​−p_n$，其中$p​_i$是第 $i$ 个素数。显然有$d_1=1$，且对于 $n&amp;gt;1$ 有 $d_n$​​ 是偶数。“素数对猜想”认为“存在无穷多对相邻且差为2的素数”。现给定任意正整数 N(&amp;lt;$10^5$)，请计算不超过 N 的满足猜想的素数对的个数。 输入格式输入在一行给出正整数N。 输出格式在一行中输出不超过N的满足猜">
+<meta property="og:description" content="原题让我们定义$d_n$​为：$d_n=p_{n+1}​​−p_n$，其中$p​_i$是第 $i$ 个素数。显然有$d_1=1$，且对于 $n&amp;gt;1$ 有 $d_n$​​ 是偶数。“素数对猜想”认为“存在无穷多对相邻且差为2的素数”。现给定任意正整数 N(&amp;lt;$10^5$)，请计算不超过 N 的满足猜想的素数对的个数。 输入格式输入在一行给出正整数N。 输出格式在一行中输出不超过N的满足">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-16T04:55:59.485Z">
+<meta property="og:updated_time" content="2020-01-16T05:02:50.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PAT乙级1007">
-<meta name="twitter:description" content="原题让我们定义$d_n$​为：$d_n=p_{n+1}​​−p_n$，其中$p​_i$是第 $i$ 个素数。显然有$d_1=1$，且对于 $n&amp;gt;1$ 有 $d_n$​​ 是偶数。“素数对猜想”认为“存在无穷多对相邻且差为2的素数”。现给定任意正整数 N(&amp;lt;$10^5$)，请计算不超过 N 的满足猜想的素数对的个数。 输入格式输入在一行给出正整数N。 输出格式在一行中输出不超过N的满足猜">
+<meta name="twitter:description" content="原题让我们定义$d_n$​为：$d_n=p_{n+1}​​−p_n$，其中$p​_i$是第 $i$ 个素数。显然有$d_1=1$，且对于 $n&amp;gt;1$ 有 $d_n$​​ 是偶数。“素数对猜想”认为“存在无穷多对相邻且差为2的素数”。现给定任意正整数 N(&amp;lt;$10^5$)，请计算不超过 N 的满足猜想的素数对的个数。 输入格式输入在一行给出正整数N。 输出格式在一行中输出不超过N的满足">
 
 
 
@@ -352,7 +352,8 @@
       
 
       
-        <h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p>让我们定义$d_n$​为：$d_n=p_{n+1}​​−p_n$，其中$p​_i$是第 $i$ 个素数。显然有$d_1=1$，且对于 $n&gt;1$ 有 $d_n$​​ 是偶数。“素数对猜想”认为“存在无穷多对相邻且差为2的素数”。<br>现给定任意正整数 N(&lt;$10^5$)，请计算不超过 N 的满足猜想的素数对的个数。</p>
+        <a id="more"></a>
+<h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p>让我们定义$d_n$​为：$d_n=p_{n+1}​​−p_n$，其中$p​_i$是第 $i$ 个素数。显然有$d_1=1$，且对于 $n&gt;1$ 有 $d_n$​​ 是偶数。“素数对猜想”认为“存在无穷多对相邻且差为2的素数”。<br>现给定任意正整数 N(&lt;$10^5$)，请计算不超过 N 的满足猜想的素数对的个数。</p>
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入在一行给出正整数<code>N</code>。</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>在一行中输出不超过<code>N</code>的满足猜想的素数对的个数。</p>
 <h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><blockquote>
