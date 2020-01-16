@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="PAT刷题,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="测试点2 3 4时间超时，希望路过的朋友能指点一二  原题宋代史学家司马光在《资治通鉴》中有一段著名的“德才论”：“是故才德全尽谓之圣人，才德兼亡谓之愚人，德胜才谓之君子，才胜德谓之小人。凡取人之术，苟不得圣人，君子而与之，与其得小人，不若得愚人。” 现给出一批考生的德才分数，请根据司马光的理论给出录取排名。 输入格式输入第一行给出 3 个正整数，分别为：N（≤$10^5$​​ ），即考生总数；">
+<meta name="keywords" content="PAT刷题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT乙级1015">
+<meta property="og:url" content="http://yoursite.com/2020/01/16/PAT乙级练习题_1015“德才论”_python解题/index.html">
+<meta property="og:site_name" content="Chenjiang-circle">
+<meta property="og:description" content="测试点2 3 4时间超时，希望路过的朋友能指点一二  原题宋代史学家司马光在《资治通鉴》中有一段著名的“德才论”：“是故才德全尽谓之圣人，才德兼亡谓之愚人，德胜才谓之君子，才胜德谓之小人。凡取人之术，苟不得圣人，君子而与之，与其得小人，不若得愚人。” 现给出一批考生的德才分数，请根据司马光的理论给出录取排名。 输入格式输入第一行给出 3 个正整数，分别为：N（≤$10^5$​​ ），即考生总数；">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-01-16T04:58:29.241Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PAT乙级1015">
+<meta name="twitter:description" content="测试点2 3 4时间超时，希望路过的朋友能指点一二  原题宋代史学家司马光在《资治通鉴》中有一段著名的“德才论”：“是故才德全尽谓之圣人，才德兼亡谓之愚人，德胜才谓之君子，才胜德谓之小人。凡取人之术，苟不得圣人，君子而与之，与其得小人，不若得愚人。” 现给出一批考生的德才分数，请根据司马光的理论给出录取排名。 输入格式输入第一行给出 3 个正整数，分别为：N（≤$10^5$​​ ），即考生总数；">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/01/16/PAT乙级练习题_1015“德才论”_python解题/">
+
+
+
+
+
+  <title>PAT乙级1015 | Chenjiang-circle</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?25faf82a8ae0391266e6b48e6ebf9b75";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chenjiang-circle</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Love code cat and life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/16/PAT乙级练习题_1015“德才论”_python解题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Circle">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/45083793.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenjiang-circle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PAT乙级1015</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-16T07:30:44+08:00">
+                2020-01-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT乙级练习题/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT乙级练习题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>测试点2 3 4时间超时，希望路过的朋友能指点一二</p>
+</blockquote>
+<h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><p>宋代史学家司马光在《资治通鉴》中有一段著名的“德才论”：“是故才德全尽谓之圣人，才德兼亡谓之愚人，德胜才谓之君子，才胜德谓之小人。凡取人之术，苟不得圣人，君子而与之，与其得小人，不若得愚人。”</p>
+<p>现给出一批考生的德才分数，请根据司马光的理论给出录取排名。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入第一行给出 3 个正整数，分别为：N（≤$10^5$​​ ），即考生总数；L（≥60），为录取最低分数线，即德分和才分均不低于 L 的考生才有资格被考虑录取；H（&lt;100），为优先录取线——德分和才分均不低于此线的被定义为“才德全尽”，此类考生按德才总分从高到低排序；才分不到但德分到线的一类考生属于“德胜才”，也按总分排序，但排在第一类考生之后；德才分均低于 H，但是德分不低于才分的考生属于“才德兼亡”但尚有“德胜才”者，按总分排序，但排在第二类考生之后；其他达到最低线 L 的考生也按总分排序，但排在第三类考生之后。</p>
+<p>随后 N 行，每行给出一位考生的信息，包括：<code>准考证号 德分 才分</code>，其中准考证号为 8 位整数，德才分为区间 [0, 100] 内的整数。数字间以空格分隔。</p>
+<h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>输出第一行首先给出达到最低分数线的考生人数 M，随后 M 行，每行按照输入格式输出一位考生的信息，考生按输入中说明的规则从高到低排序。当某类考生中有多人总分相同时，按其德分降序排列；若德分也并列，则按准考证号的升序输出。</p>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><blockquote>
+<p>14 60 80<br>10000001 64 90<br>10000002 90 60<br>10000011 85 80<br>10000003 85 80<br>10000004 80 85<br>10000005 82 77<br>10000006 83 76<br>10000007 90 78<br>10000008 75 79<br>10000009 59 90<br>10000010 88 45<br>10000012 80 100<br>10000013 90 99<br>10000014 66 60</p>
+</blockquote>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><blockquote>
+<p>12<br>10000013 90 99<br>10000012 80 100<br>10000003 85 80<br>10000011 85 80<br>10000004 80 85<br>10000007 90 78<br>10000006 83 76<br>10000005 82 77<br>10000002 90 60<br>10000014 66 60<br>10000008 75 79<br>10000001 64 90</p>
+</blockquote>
+<h1 id="my-answer"><a href="#my-answer" class="headerlink" title="my answer"></a>my answer</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>用一个变量<code>qualification_number</code>来存储有资格的考生人数<br>创建四个列表分别存放四类考生的信息<br>每输入一个考生信息就去判断该考生是否有“资格”，若有资格<code>qualification_number+=1</code>，然后通过<code>if-elif</code>语句对有资格的考生进行分类并将考生信息放到相应的列表中去<br>输入完成之后，对每一个列表依次按照“总分”“德分”“考生号”进行排序<br>输出结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在已经按照总分排序的前提下，总分相同的考生按德分进行排序</span></span><br><span class="line"><span class="comment"># 思路：因为在“按总分排序”的前提下，相同德分的考生必定在列表是相邻的。</span></span><br><span class="line"><span class="comment">#      所以用两个变量存储这“一串”相同德分的考生的信息在列表中的起始位置。</span></span><br><span class="line"><span class="comment">#      然后对这“一串“考生信息构成的子列表按照德分进行排序，再将该排完序的子列表重新放回原来的位置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在实现上述思路的时候会遇到个问题:</span></span><br><span class="line"><span class="comment"># 子列表的起点如何确定，又该在何时更新?</span></span><br><span class="line"><span class="comment"># 本人解决的办法是，用一个布尔变量进行控制子列表起始位置index_start的变化</span></span><br><span class="line"><span class="comment"># 初始化为True，在从列表0位置逐个遍历整个列表的时候，当发现当前位置考生的德分与下一位考生的德分一致时，就将当前考生的位置赋值给index_start，并将该布尔变量变成false，</span></span><br><span class="line"><span class="comment"># 此后再遇到相同的德分，就只改变子列表的末尾值。</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_by_de</span><span class="params">(ls)</span>:</span></span><br><span class="line">    flag = <span class="literal">True</span></span><br><span class="line">    index_start = <span class="number">0</span></span><br><span class="line">    index_end = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(ls)<span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">if</span> ls[i][<span class="number">3</span>] == ls[i+<span class="number">1</span>][<span class="number">3</span>]:</span><br><span class="line">            <span class="keyword">if</span> flag:</span><br><span class="line">                index_start = i</span><br><span class="line">                flag = <span class="literal">False</span></span><br><span class="line">            index_end = i+<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> index_start == index_end:</span><br><span class="line">                flag = <span class="literal">True</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                tmp = ls[index_start: index_end+<span class="number">1</span>]</span><br><span class="line">                tmp.sort(key=<span class="keyword">lambda</span> de: de[<span class="number">1</span>], reverse=<span class="literal">True</span>)</span><br><span class="line">                ls[index_start: index_end+<span class="number">1</span>] = tmp</span><br><span class="line">                index_start = i+<span class="number">1</span></span><br><span class="line">                index_end = i+<span class="number">1</span></span><br><span class="line">                flag = <span class="literal">True</span></span><br><span class="line">        <span class="comment"># 在进行循环的时候还会遇到一种特殊情况，即子列表末尾与列表末尾相同。</span></span><br><span class="line">        <span class="comment"># 在这种情况下，本次循环已经到了最后一次了，就不会对该子列表进行排序操作</span></span><br><span class="line">        <span class="comment"># 所以需要将这种特殊情况单独进行处理</span></span><br><span class="line">        <span class="keyword">if</span> index_end == len(ls)<span class="number">-1</span> <span class="keyword">and</span> index_end != index_start:</span><br><span class="line">            tmp = ls[index_start:]</span><br><span class="line">            tmp.sort(key=<span class="keyword">lambda</span> de: de[<span class="number">1</span>], reverse=<span class="literal">True</span>)</span><br><span class="line">            ls[index_start:] = tmp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在按总分排序后，相同总分又按德分排过顺序的前提下，相同德分的考生按照考生号进行排序</span></span><br><span class="line"><span class="comment"># 思路与上面的函数的思路相同</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_by_id</span><span class="params">(ls)</span>:</span></span><br><span class="line">    flag = <span class="literal">True</span></span><br><span class="line">    index_start = <span class="number">0</span></span><br><span class="line">    index_end = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(ls)<span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">if</span> ls[i][<span class="number">1</span>] == ls[i+<span class="number">1</span>][<span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">if</span> flag:</span><br><span class="line">                index_start = i</span><br><span class="line">                flag = <span class="literal">False</span></span><br><span class="line">            index_end = i+<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> index_start == index_end:</span><br><span class="line">                flag = <span class="literal">True</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                tmp = ls[index_start: index_end+<span class="number">1</span>]</span><br><span class="line">                tmp.sort(key=<span class="keyword">lambda</span> de: de[<span class="number">0</span>], reverse=<span class="literal">False</span>)</span><br><span class="line">                ls[index_start: index_end+<span class="number">1</span>] = tmp</span><br><span class="line">                index_start = i+<span class="number">1</span></span><br><span class="line">                index_end = i+<span class="number">1</span></span><br><span class="line">                flag = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> index_end == len(ls)<span class="number">-1</span> <span class="keyword">and</span> index_end != index_start:</span><br><span class="line">            tmp = ls[index_start:]</span><br><span class="line">            tmp.sort(key=<span class="keyword">lambda</span> de: de[<span class="number">1</span>], reverse=<span class="literal">False</span>)</span><br><span class="line">            ls[index_start:] = tmp</span><br><span class="line"><span class="comment"># 获取评分标准以及考生人数</span></span><br><span class="line">input_str = input()</span><br><span class="line">N = int(input_str.split()[<span class="number">0</span>])</span><br><span class="line">L = int(input_str.split()[<span class="number">1</span>])</span><br><span class="line">H = int(input_str.split()[<span class="number">2</span>])</span><br><span class="line">qualification_number = <span class="number">0</span> <span class="comment"># 有“录取资格”的考生人数</span></span><br><span class="line"><span class="comment">## 用四个列表来存储每一类考生的信息</span></span><br><span class="line">one_people = [] <span class="comment"># 第一类考生，列表中的每一个元素还是一个列表，存储着考生的考号、德分、才分、总分。下同</span></span><br><span class="line">two_people = [] <span class="comment"># 第二类考生</span></span><br><span class="line">three_people = [] <span class="comment"># 第三类考生</span></span><br><span class="line">four_people = [] <span class="comment"># 第四类考生</span></span><br><span class="line"><span class="keyword">while</span> N &gt; <span class="number">0</span>:</span><br><span class="line">    input_info = input()</span><br><span class="line">    temp_list = input_info.split()</span><br><span class="line">    temp_de = int(temp_list[<span class="number">1</span>])</span><br><span class="line">    temp_cai = int(temp_list[<span class="number">2</span>])</span><br><span class="line">    temp_sum = temp_de + temp_cai</span><br><span class="line">    <span class="keyword">if</span> temp_de &lt; L <span class="keyword">or</span> temp_cai &lt; L: <span class="comment"># 判断该考生是否有录取资格。若没有，则直接跳过本次循环</span></span><br><span class="line">        N -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">elif</span> temp_de &gt;= H <span class="keyword">and</span> temp_cai &gt;= H: <span class="comment"># 第一类考生</span></span><br><span class="line">        qualification_number += <span class="number">1</span></span><br><span class="line">        temp_list.append(temp_sum)</span><br><span class="line">        one_people.append(temp_list)</span><br><span class="line">    <span class="keyword">elif</span> temp_de &gt;= H <span class="keyword">and</span> temp_cai &lt; H: <span class="comment"># 第二类考生</span></span><br><span class="line">        qualification_number += <span class="number">1</span></span><br><span class="line">        temp_list.append(temp_sum)</span><br><span class="line">        two_people.append(temp_list)</span><br><span class="line">    <span class="keyword">elif</span> temp_de &lt; H <span class="keyword">and</span> temp_cai &lt; H <span class="keyword">and</span> temp_de &gt;= temp_cai: <span class="comment"># 第三类考生</span></span><br><span class="line">        qualification_number += <span class="number">1</span></span><br><span class="line">        temp_list.append(temp_sum)</span><br><span class="line">        three_people.append(temp_list)</span><br><span class="line">    <span class="keyword">else</span>: <span class="comment"># 其他考生</span></span><br><span class="line">        qualification_number += <span class="number">1</span></span><br><span class="line">        temp_list.append(temp_sum)</span><br><span class="line">        four_people.append(temp_list)</span><br><span class="line">    N -= <span class="number">1</span></span><br><span class="line"><span class="comment"># 先按照总分进行排序</span></span><br><span class="line">one_people.sort(key=<span class="keyword">lambda</span> number: number[<span class="number">3</span>], reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># 相同总分的考生再按照德分进行排序</span></span><br><span class="line">sort_by_de(one_people)</span><br><span class="line"><span class="comment"># 相同总分和德分的考生，再按照考号排序</span></span><br><span class="line">sort_by_id(one_people)</span><br><span class="line"></span><br><span class="line">two_people.sort(key=<span class="keyword">lambda</span> number: number[<span class="number">3</span>], reverse=<span class="literal">True</span>)</span><br><span class="line">sort_by_de(two_people)</span><br><span class="line">sort_by_id(two_people)</span><br><span class="line"></span><br><span class="line">three_people.sort(key=<span class="keyword">lambda</span> number: number[<span class="number">3</span>], reverse=<span class="literal">True</span>)</span><br><span class="line">sort_by_de(three_people)</span><br><span class="line">sort_by_id(three_people)</span><br><span class="line"></span><br><span class="line">four_people.sort(key=<span class="keyword">lambda</span> number: number[<span class="number">3</span>], reverse=<span class="literal">True</span>)</span><br><span class="line">sort_by_de(four_people)</span><br><span class="line">sort_by_id(four_people)</span><br><span class="line"></span><br><span class="line">print(qualification_number)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> one_people:</span><br><span class="line">    print(i[<span class="number">0</span>], i[<span class="number">1</span>], i[<span class="number">2</span>])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> two_people:</span><br><span class="line">    print(i[<span class="number">0</span>], i[<span class="number">1</span>], i[<span class="number">2</span>])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> three_people:</span><br><span class="line">    print(i[<span class="number">0</span>], i[<span class="number">1</span>], i[<span class="number">2</span>])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> four_people:</span><br><span class="line">    print(i[<span class="number">0</span>], i[<span class="number">1</span>], i[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PAT刷题/" rel="tag"># PAT刷题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/15/PAT乙级练习题_1014“福尔摩斯的约会”_python解题/" rel="next" title="PAT乙级1014">
+                <i class="fa fa-chevron-left"></i> PAT乙级1014
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/16/PAT乙级练习题_1016“部分A+B”_python解题/" rel="prev" title="PAT乙级1016">
+                PAT乙级1016 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/45083793.jpg" alt="Circle">
+            
+              <p class="site-author-name" itemprop="name">Circle</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Chenjiang-circle" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原题"><span class="nav-number">1.</span> <span class="nav-text">原题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#输入格式"><span class="nav-number">1.1.</span> <span class="nav-text">输入格式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#输出格式"><span class="nav-number">2.</span> <span class="nav-text">输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#输入样例"><span class="nav-number">2.1.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出样例"><span class="nav-number">2.2.</span> <span class="nav-text">输出样例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#my-answer"><span class="nav-number">3.</span> <span class="nav-text">my answer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.1.</span> <span class="nav-text">思路</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Circle</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
